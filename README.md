@@ -65,7 +65,7 @@ The tool reads JSONL files from `~/.claude/projects/` directory.
 - `--until YYYYMMDD`: End date filter
 - `--breakdown`: Show model-specific breakdown
 - `--json`: Output as JSON
-- `--asc`: Sort in ascending order (default is descending)
+- `--asc`: Sort in descending order/newest first (default is ascending/oldest first)
 - `--models`: Filter by specific models (comma-separated)
 
 ### Examples
@@ -83,7 +83,7 @@ The tool reads JSONL files from `~/.claude/projects/` directory.
 # Filter by specific models
 ./claude-usage-go daily --models claude-opus-4-20250514,claude-3-5-sonnet-20241022
 
-# Show daily usage in ascending order
+# Show daily usage in descending order (newest first)
 ./claude-usage-go daily --asc
 ```
 

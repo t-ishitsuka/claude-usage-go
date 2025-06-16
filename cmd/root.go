@@ -37,6 +37,6 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&until, "until", "", "End date (YYYYMMDD format)")
 	rootCmd.PersistentFlags().BoolVar(&breakdown, "breakdown", false, "Show model breakdown")
 	rootCmd.PersistentFlags().BoolVar(&jsonOutput, "json", false, "Output as JSON")
-	rootCmd.PersistentFlags().BoolVar(&ascending, "asc", false, "Sort in ascending order")
+	rootCmd.PersistentFlags().BoolVar(&ascending, "asc", false, "Sort in descending order (newest first)")
 	rootCmd.PersistentFlags().StringSliceVar(&modelFilter, "models", []string{}, "Filter by models")
 }
