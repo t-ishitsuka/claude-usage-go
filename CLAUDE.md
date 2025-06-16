@@ -23,6 +23,14 @@ go mod tidy
 # Common development commands
 go fmt ./...  # Format code
 go vet ./...  # Run static analysis
+
+# Test commands
+go test ./...                    # Run all tests
+go test -v ./...                 # Run all tests with verbose output
+go test ./internal/calculator    # Run tests for specific package
+go test -run TestCalculateCost ./internal/calculator  # Run specific test
+go test -cover ./...             # Run tests with coverage
+go test -race ./...              # Run tests with race detector
 ```
 
 ## Architecture
