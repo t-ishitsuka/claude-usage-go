@@ -40,7 +40,7 @@ func TestModelPricing(t *testing.T) {
 
 		// Verify output is more expensive than input (common pattern)
 		if pricing.OutputPer1M <= pricing.InputPer1M {
-			t.Errorf("Model %s output price (%f) should be higher than input price (%f)", 
+			t.Errorf("Model %s output price (%f) should be higher than input price (%f)",
 				model, pricing.OutputPer1M, pricing.InputPer1M)
 		}
 	}
@@ -48,30 +48,30 @@ func TestModelPricing(t *testing.T) {
 
 func TestModelPricing_SpecificValues(t *testing.T) {
 	tests := []struct {
-		model            string
-		expectedInput    float64
-		expectedOutput   float64
+		model               string
+		expectedInput       float64
+		expectedOutput      float64
 		expectedCacheCreate float64
 		expectedCacheRead   float64
 	}{
 		{
-			model:            "claude-opus-4-20250514",
-			expectedInput:    15.00,
-			expectedOutput:   75.00,
+			model:               "claude-opus-4-20250514",
+			expectedInput:       15.00,
+			expectedOutput:      75.00,
 			expectedCacheCreate: 18.75,
 			expectedCacheRead:   1.50,
 		},
 		{
-			model:            "claude-sonnet-4-20250514",
-			expectedInput:    3.00,
-			expectedOutput:   15.00,
+			model:               "claude-sonnet-4-20250514",
+			expectedInput:       3.00,
+			expectedOutput:      15.00,
 			expectedCacheCreate: 3.75,
 			expectedCacheRead:   0.30,
 		},
 		{
-			model:            "claude-3-haiku-20240307",
-			expectedInput:    0.25,
-			expectedOutput:   1.25,
+			model:               "claude-3-haiku-20240307",
+			expectedInput:       0.25,
+			expectedOutput:      1.25,
 			expectedCacheCreate: 0.30,
 			expectedCacheRead:   0.03,
 		},

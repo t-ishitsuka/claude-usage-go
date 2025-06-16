@@ -120,7 +120,7 @@ func TestFilterByDateRange(t *testing.T) {
 	baseTime := time.Date(2025, 1, 15, 10, 0, 0, 0, time.UTC)
 	messages := []models.Message{
 		{Timestamp: baseTime.Add(-2 * 24 * time.Hour)}, // Jan 13
-		{Timestamp: baseTime},                           // Jan 15
+		{Timestamp: baseTime},                          // Jan 15
 		{Timestamp: baseTime.Add(2 * 24 * time.Hour)},  // Jan 17
 		{Timestamp: baseTime.Add(5 * 24 * time.Hour)},  // Jan 20
 	}
@@ -225,7 +225,7 @@ func TestFilterByModels(t *testing.T) {
 
 func TestGetClaudeProjectsDir(t *testing.T) {
 	result := GetClaudeProjectsDir()
-	
+
 	// Should end with .claude/projects
 	expected := filepath.Join(".claude", "projects")
 	if !filepath.IsAbs(result) {

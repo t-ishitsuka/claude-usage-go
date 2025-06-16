@@ -40,7 +40,7 @@ func ParseJSONLFiles(directory string) ([]models.Message, error) {
 		if err != nil {
 			return err
 		}
-		
+
 		if !info.IsDir() && filepath.Ext(path) == ".jsonl" {
 			msgs, err := parseJSONLFile(path)
 			if err != nil {
@@ -48,10 +48,10 @@ func ParseJSONLFiles(directory string) ([]models.Message, error) {
 			}
 			messages = append(messages, msgs...)
 		}
-		
+
 		return nil
 	})
-	
+
 	if err != nil {
 		return nil, fmt.Errorf("error walking directory: %w", err)
 	}
@@ -68,7 +68,7 @@ func parseJSONLFile(filename string) ([]models.Message, error) {
 
 	var messages []models.Message
 	scanner := bufio.NewScanner(file)
-	
+
 	// Increase buffer size to handle large lines (10MB)
 	const maxCapacity = 10 * 1024 * 1024
 	buf := make([]byte, maxCapacity)
