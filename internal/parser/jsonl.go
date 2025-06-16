@@ -35,18 +35,25 @@ type Usage struct {
 func ParseJSONLFiles(directory string) ([]models.Message, error) {
 	var messages []models.Message
 
-	pattern := filepath.Join(directory, "**", "*.jsonl")
-	files, err := filepath.Glob(pattern)
-	if err != nil {
-		return nil, fmt.Errorf("error finding JSONL files: %w", err)
-	}
-
-	for _, file := range files {
-		msgs, err := parseJSONLFile(file)
+	// Walk the directory tree to find all .jsonl files
+	err := filepath.Walk(directory, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			return nil, fmt.Errorf("error parsing %s: %w", file, err)
+			return err
 		}
-		messages = append(messages, msgs...)
+
+		if !info.IsDir() && filepath.Ext(path) == ".jsonl" {
+			msgs, err := parseJSONLFile(path)
+			if err != nil {
+				return fmt.Errorf("error parsing %s: %w", path, err)
+			}
+			messages = append(messages, msgs...)
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return nil, fmt.Errorf("error walking directory: %w", err)
 	}
 
 	return messages, nil
@@ -61,7 +68,7 @@ func parseJSONLFile(filename string) ([]models.Message, error) {
 
 	var messages []models.Message
 	scanner := bufio.NewScanner(file)
-	
+
 	// Increase buffer size to handle large lines (10MB)
 	const maxCapacity = 10 * 1024 * 1024
 	buf := make([]byte, maxCapacity)
