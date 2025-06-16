@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yourusername/claude-usage-go/internal/models"
+	"github.com/t-ishitsuka/claude-usage-go/internal/models"
 )
 
 type JSONLEntry struct {

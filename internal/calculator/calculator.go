@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/yourusername/claude-usage-go/internal/models"
+	"github.com/t-ishitsuka/claude-usage-go/internal/models"
 )
 
 func CalculateCost(usage models.TokenUsage, model string) float64 {

@@ -31,13 +31,13 @@ A Go implementation of a Claude API usage and pricing display tool, similar to [
 ## Installation
 
 ```bash
-go install github.com/yourusername/claude-usage-go@latest
+go install github.com/t-ishitsuka/claude-usage-go@latest
 ```
 
 Or clone and build from source:
 
 ```bash
-git clone https://github.com/yourusername/claude-usage-go.git
+git clone https://github.com/t-ishitsuka/claude-usage-go.git
 cd claude-usage-go
 go build
 ```

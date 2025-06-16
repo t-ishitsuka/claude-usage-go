@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"github.com/yourusername/claude-usage-go/internal/calculator"
-	"github.com/yourusername/claude-usage-go/internal/display"
-	"github.com/yourusername/claude-usage-go/internal/models"
-	"github.com/yourusername/claude-usage-go/internal/parser"
+	"github.com/t-ishitsuka/claude-usage-go/internal/calculator"
+	"github.com/t-ishitsuka/claude-usage-go/internal/display"
+	"github.com/t-ishitsuka/claude-usage-go/internal/models"
+	"github.com/t-ishitsuka/claude-usage-go/internal/parser"
 )
 
 var dailyCmd = &cobra.Command{

@@ -1,4 +1,4 @@
-module github.com/yourusername/claude-usage-go
+module github.com/t-ishitsuka/claude-usage-go
 
 go 1.21
 

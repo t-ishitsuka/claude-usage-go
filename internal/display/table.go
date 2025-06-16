@@ -8,8 +8,8 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
-	"github.com/yourusername/claude-usage-go/internal/calculator"
-	"github.com/yourusername/claude-usage-go/internal/models"
+	"github.com/t-ishitsuka/claude-usage-go/internal/calculator"
+	"github.com/t-ishitsuka/claude-usage-go/internal/models"
 )
 
 var (
