@@ -16,11 +16,11 @@ func (t TokenUsage) Total() int {
 }
 
 type Message struct {
-	SessionID         string    `json:"session_id"`
-	Timestamp         time.Time `json:"timestamp"`
-	Model             string    `json:"model"`
-	TokenUsage        TokenUsage
-	EstimatedCostUSD  float64
+	SessionID        string    `json:"session_id"`
+	Timestamp        time.Time `json:"timestamp"`
+	Model            string    `json:"model"`
+	TokenUsage       TokenUsage
+	EstimatedCostUSD float64
 }
 
 type DailyUsage struct {

@@ -27,7 +27,7 @@ func AggregateDaily(messages []models.Message) []models.DailyUsage {
 
 	for _, msg := range messages {
 		dateKey := msg.Timestamp.Format("2006-01-02")
-		
+
 		if _, exists := dailyMap[dateKey]; !exists {
 			dailyMap[dateKey] = &models.DailyUsage{
 				Date:   msg.Timestamp.Truncate(24 * time.Hour),
@@ -40,7 +40,7 @@ func AggregateDaily(messages []models.Message) []models.DailyUsage {
 		daily.TokenUsage.OutputTokens += msg.TokenUsage.OutputTokens
 		daily.TokenUsage.CacheCreateTokens += msg.TokenUsage.CacheCreateTokens
 		daily.TokenUsage.CacheReadTokens += msg.TokenUsage.CacheReadTokens
-		
+
 		msg.EstimatedCostUSD = CalculateCost(msg.TokenUsage, msg.Model)
 		daily.CostUSD += msg.EstimatedCostUSD
 
@@ -66,7 +66,7 @@ func AggregateMonthly(messages []models.Message) []models.MonthlyUsage {
 
 	for _, msg := range messages {
 		monthKey := msg.Timestamp.Format("2006-01")
-		
+
 		if _, exists := monthlyMap[monthKey]; !exists {
 			monthlyMap[monthKey] = &models.MonthlyUsage{
 				Year:   msg.Timestamp.Year(),
@@ -80,7 +80,7 @@ func AggregateMonthly(messages []models.Message) []models.MonthlyUsage {
 		monthly.TokenUsage.OutputTokens += msg.TokenUsage.OutputTokens
 		monthly.TokenUsage.CacheCreateTokens += msg.TokenUsage.CacheCreateTokens
 		monthly.TokenUsage.CacheReadTokens += msg.TokenUsage.CacheReadTokens
-		
+
 		msg.EstimatedCostUSD = CalculateCost(msg.TokenUsage, msg.Model)
 		monthly.CostUSD += msg.EstimatedCostUSD
 
@@ -122,7 +122,7 @@ func AggregateBySession(messages []models.Message) []models.SessionUsage {
 		session.TokenUsage.OutputTokens += msg.TokenUsage.OutputTokens
 		session.TokenUsage.CacheCreateTokens += msg.TokenUsage.CacheCreateTokens
 		session.TokenUsage.CacheReadTokens += msg.TokenUsage.CacheReadTokens
-		
+
 		msg.EstimatedCostUSD = CalculateCost(msg.TokenUsage, msg.Model)
 		session.CostUSD += msg.EstimatedCostUSD
 

@@ -8,6 +8,23 @@ claude-usage-go is a CLI tool that analyzes Claude API usage from local JSONL fi
 
 ## Build and Development Commands
 
+### Using Make (Recommended)
+```bash
+# Format, lint, test, and build
+make
+
+# Individual commands
+make build         # Build the application
+make test          # Run tests
+make test-coverage # Run tests with coverage
+make format        # Format code with gofmt
+make lint          # Run linters
+make clean         # Remove build artifacts
+make run           # Build and run the application
+make help          # Show all available commands
+```
+
+### Manual Commands
 ```bash
 # Build the project
 go build -o claude-usage-go
@@ -23,6 +40,14 @@ go mod tidy
 # Common development commands
 go fmt ./...  # Format code
 go vet ./...  # Run static analysis
+
+# Test commands
+go test ./...                    # Run all tests
+go test -v ./...                 # Run all tests with verbose output
+go test ./internal/calculator    # Run tests for specific package
+go test -run TestCalculateCost ./internal/calculator  # Run specific test
+go test -cover ./...             # Run tests with coverage
+go test -race ./...              # Run tests with race detector
 ```
 
 ## Architecture

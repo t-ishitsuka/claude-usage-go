@@ -100,7 +100,7 @@ func ShowDailyWithBreakdown(dailyUsage []models.DailyUsage, messages []models.Me
 
 	for _, daily := range dailyUsage {
 		fmt.Printf("\n%s %s\n", headerColor.Sprint("Date:"), daily.Date.Format("2006-01-02"))
-		
+
 		var dayMessages []models.Message
 		for _, msg := range messages {
 			if msg.Timestamp.Format("2006-01-02") == daily.Date.Format("2006-01-02") {
@@ -203,7 +203,7 @@ func ShowMonthlyWithBreakdown(monthlyUsage []models.MonthlyUsage, messages []mod
 
 	for _, monthly := range monthlyUsage {
 		fmt.Printf("\n%s %d-%02d\n", headerColor.Sprint("Month:"), monthly.Year, monthly.Month)
-		
+
 		var monthMessages []models.Message
 		for _, msg := range messages {
 			if msg.Timestamp.Year() == monthly.Year && msg.Timestamp.Month() == monthly.Month {
@@ -303,10 +303,10 @@ func ShowSessionWithBreakdown(sessionUsage []models.SessionUsage, messages []mod
 
 	for _, session := range sessionUsage {
 		fmt.Printf("\n%s %s\n", headerColor.Sprint("Session:"), session.SessionID[:16]+"...")
-		fmt.Printf("%s %s - %s\n", headerColor.Sprint("Time Range:"), 
+		fmt.Printf("%s %s - %s\n", headerColor.Sprint("Time Range:"),
 			session.StartTime.Format("2006-01-02 15:04"),
 			session.EndTime.Format("15:04"))
-		
+
 		var sessionMessages []models.Message
 		for _, msg := range messages {
 			if msg.SessionID == session.SessionID {
@@ -324,7 +324,7 @@ func ShowSessionWithBreakdown(sessionUsage []models.SessionUsage, messages []mod
 
 func showModelBreakdown(messages []models.Message) {
 	breakdown := calculator.AggregateByModel(messages)
-	
+
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"Model", "Input", "Output", "Cache Create", "Cache Read", "Total", "Cost (USD)"})
 	table.SetBorder(false)
@@ -350,7 +350,7 @@ func showModelBreakdown(messages []models.Message) {
 func getShortModelNames(modelList []string) []string {
 	var shortNames []string
 	seen := make(map[string]bool)
-	
+
 	for _, model := range modelList {
 		short := models.GetModelShortName(model)
 		if !seen[short] {
@@ -358,7 +358,7 @@ func getShortModelNames(modelList []string) []string {
 			seen[short] = true
 		}
 	}
-	
+
 	return shortNames
 }
 
@@ -368,4 +368,3 @@ func formatNumber(n int) string {
 	}
 	return fmt.Sprintf("%d", n)
 }
-
