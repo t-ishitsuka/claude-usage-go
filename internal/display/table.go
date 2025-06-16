@@ -20,7 +20,7 @@ var (
 )
 
 func ShowDaily(dailyUsage []models.DailyUsage, ascending bool) error {
-	if !ascending {
+	if ascending {
 		sort.Slice(dailyUsage, func(i, j int) bool {
 			return dailyUsage[i].Date.After(dailyUsage[j].Date)
 		})
@@ -92,7 +92,7 @@ func ShowDaily(dailyUsage []models.DailyUsage, ascending bool) error {
 }
 
 func ShowDailyWithBreakdown(dailyUsage []models.DailyUsage, messages []models.Message, ascending bool) error {
-	if !ascending {
+	if ascending {
 		sort.Slice(dailyUsage, func(i, j int) bool {
 			return dailyUsage[i].Date.After(dailyUsage[j].Date)
 		})
@@ -117,7 +117,7 @@ func ShowDailyWithBreakdown(dailyUsage []models.DailyUsage, messages []models.Me
 }
 
 func ShowMonthly(monthlyUsage []models.MonthlyUsage, ascending bool) error {
-	if !ascending {
+	if ascending {
 		sort.Slice(monthlyUsage, func(i, j int) bool {
 			if monthlyUsage[i].Year != monthlyUsage[j].Year {
 				return monthlyUsage[i].Year > monthlyUsage[j].Year
@@ -192,7 +192,7 @@ func ShowMonthly(monthlyUsage []models.MonthlyUsage, ascending bool) error {
 }
 
 func ShowMonthlyWithBreakdown(monthlyUsage []models.MonthlyUsage, messages []models.Message, ascending bool) error {
-	if !ascending {
+	if ascending {
 		sort.Slice(monthlyUsage, func(i, j int) bool {
 			if monthlyUsage[i].Year != monthlyUsage[j].Year {
 				return monthlyUsage[i].Year > monthlyUsage[j].Year
