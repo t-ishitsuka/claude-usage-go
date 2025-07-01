@@ -30,7 +30,7 @@ func ShowDaily(dailyUsage []models.DailyUsage, ascending bool) error {
 	table.SetHeader([]string{"Date", "Models", "Input", "Output", "Cache Create", "Cache Read", "Total", "Cost (USD)"})
 	table.SetBorder(true)
 	table.SetRowLine(true)
-	table.SetCenterSeparator("│")
+	table.SetCenterSeparator("+")
 	table.SetColumnSeparator("│")
 	table.SetRowSeparator("─")
 	table.SetHeaderColor(
@@ -130,7 +130,7 @@ func ShowMonthly(monthlyUsage []models.MonthlyUsage, ascending bool) error {
 	table.SetHeader([]string{"Month", "Models", "Input", "Output", "Cache Create", "Cache Read", "Total", "Cost (USD)"})
 	table.SetBorder(true)
 	table.SetRowLine(true)
-	table.SetCenterSeparator("│")
+	table.SetCenterSeparator("+")
 	table.SetColumnSeparator("│")
 	table.SetRowSeparator("─")
 	table.SetHeaderColor(
@@ -230,7 +230,7 @@ func ShowSession(sessionUsage []models.SessionUsage, ascending bool) error {
 	table.SetHeader([]string{"Session ID", "Start Time", "Models", "Input", "Output", "Cache Create", "Cache Read", "Total", "Cost (USD)"})
 	table.SetBorder(true)
 	table.SetRowLine(true)
-	table.SetCenterSeparator("│")
+	table.SetCenterSeparator("+")
 	table.SetColumnSeparator("│")
 	table.SetRowSeparator("─")
 	table.SetHeaderColor(
